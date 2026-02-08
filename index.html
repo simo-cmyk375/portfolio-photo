@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simo - Expert en Comportement Professionnel</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Styles modernes et professionnels */
+        :root {
+            --primary: #2563eb;
+            --secondary: #3b82f6;
+            --accent: #f59e0b;
+            --light: #f8fafc;
+            --dark: #1e293b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: white;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,112C960,128,1056,160,1152,160C1248,160,1344,128,1392,112L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C672,320,480,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>');
+            background-size: cover;
+            opacity: 0.1;
+        }
+        
+        /* Photo de profil */
+        .profile-container {
+            position: relative;
+            z-index: 1;
+            margin-bottom: 30px;
+        }
+        
+        .profile-photo {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            margin: 0 auto 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .profile-photo:hover {
+            transform: scale(1.05);
+            border-color: white;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: 1.3rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+        
+        /* Navigation */
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            color: white;
+            text-decoration: none;
+            padding: 12px 24px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            color: var(--dark);
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
+        }
+        
+        /* À propos */
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            color: var(--primary);
+            font-weight: 600;
+            background: linear-gradient(120deg, #e0f2fe 0%, #fef3c7 100%);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+        
+        /* Compétences */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .skill-card {
+            background: white;
+            padding: 40px 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .skill-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+        }
+        
+        .skill-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        .skill-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .skill-list {
+            list-style: none;
+            text-align: left;
+        }
+        
+        .skill-list li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f1f5f9;
+            position: relative;
+            padding-left: 30px;
+        }
+        
+        .skill-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 25px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: white;
+            font-size: 1.2rem;
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 16px;
+            margin-bottom: 20px;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form input:focus,
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-block;
+            text-decoration: none;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(37, 99, 235, 0.3);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .social-links a {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            opacity: 0.7;
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .profile-photo {
+                width: 180px;
+                height: 180px;
+            }
+        }
+        
+        /* Animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 0.8s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête avec photo -->
+    <header>
+        <div class="container">
+            <div class="profile-container fade-in">
+                <!-- ⚠️ IMPORTANT : Remplacez ce lien APRÈS avoir uploadé votre photo sur GitHub ⚠️ -->
+                <img id="myPhoto" 
+                     src="https://raw.githubusercontent.com/simo-cmyk375/portfolio-photo/refs/heads/main/8c775e8a-201a-4d83-917f-ebcca7bc6d69.jfif" 
+                     alt="Simo - Photo professionnelle" 
+                     class="profile-photo"
+                     onerror="showPhotoInstructions()">
+                
+                <h1>Simo</h1>
+                <p class="tagline">Expert en Comportement Professionnel & Gestion du Stress</p>
+                
+                <div class="nav-links">
+                    <a href="#apropos" class="nav-btn">À propos</a>
+                    <a href="#competences" class="nav-btn">Compétences</a>
+                    <a href="#contact" class="nav-btn">Contact</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Section À propos -->
+    <section id="apropos">
+        <div class="container">
+            <h2>À propos de moi</h2>
+            <div class="about-content fade-in">
+                <p>Je suis <span class="highlight">Simo</span>, spécialiste en développement des compétences professionnelles et en gestion du stress en milieu de travail.</p>
+                <p>Avec <span class="highlight">plusieurs années d'expérience</span> dans l'accompagnement des professionnels, je mets mon expertise à votre service pour vous aider à exceller dans votre carrière tout en préservant votre équilibre personnel.</p>
+                <p>Mon approche est <span class="highlight">pratique et personnalisée</span>, combinant des techniques éprouvées de développement professionnel avec des stratégies efficaces de gestion du stress.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Compétences -->
+    <section style="background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);">
+        <div class="container">
+            <h2>Mes Domaines d'Expertise</h2>
+            <div class="skills-grid">
+                <!-- Comportement Professionnel -->
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Comportement Professionnel</h3>
+                    <ul class="skill-list">
+                        <li>Communication professionnelle efficace</li>
+                        <li>Éthique et intégrité au travail</li>
+                        <li>Gestion du temps et organisation</li>
+                        <li>Travail d'équipe et collaboration</li>
+                        <li>Leadership et prise d'initiative</li>
+                        <li>Adaptabilité et résolution de problèmes</li>
+                    </ul>
+                </div>
+                
+                <!-- Gestion du Stress -->
+                <div class="skill-card fade-in">
+                    <div class="skill-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Gestion du Stress & Bien-être</h3>
+                    <ul class="skill-list">
+                        <li>Identification des sources de stress</li>
+                        <li>Techniques de relaxation rapides</li>
+                        <li>Gestion des émotions au travail</li>
+                        <li>Équilibre vie professionnelle/personnelle</li>
+                        <li>Prévention du burn-out</li>
+                        <li>Développement de la résilience</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Contact -->
+    <section id="contact">
+        <div class="container">
+            <h2>Contactez-moi</h2>
+            <div class="contact-grid">
+                <div class="contact-info fade-in">
+                    <h3>Informations de contact</h3>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email</h4>
+                            <p>simo.professionnel@exemple.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Téléphone</h4>
+                            <p>+33 XX XX XX XX XX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Localisation</h4>
+                            <p>France</p>
+                        </div>
+                    </div>
+                    
+                    <div class="social-links">
+                        <a href="#" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" title="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" title="Email"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+                
+                <div class="contact-form fade-in">
+                    <h3>Envoyez-moi un message</h3>
+                    <form id="contactForm">
+                        <input type="text" placeholder="Votre nom complet" required>
+                        <input type="email" placeholder="Votre adresse email" required>
+                        <input type="text" placeholder="Sujet du message" required>
+                        <textarea placeholder="Votre message..." rows="6" required></textarea>
+                        <button type="submit" class="btn">Envoyer le message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <h3>Simo</h3>
+                    <p>Expert en développement professionnel et bien-être au travail.</p>
+                </div>
+                
+                <div>
+                    <h3>Navigation</h3>
+                    <p><a href="#apropos" style="color: white; text-decoration: none;">À propos</a></p>
+                    <p><a href="#competences" style="color: white; text-decoration: none;">Compétences</a></p>
+                    <p><a href="#contact" style="color: white; text-decoration: none;">Contact</a></p>
+                </div>
+                
+                <div>
+                    <h3>Newsletter</h3>
+                    <p>Recevez des conseils exclusifs sur le comportement professionnel et la gestion du stress.</p>
+                    <input type="email" placeholder="Votre email" style="width: 100%; padding: 12px; border-radius: 8px; border: none; margin-top: 10px;">
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 Simo. Tous droits réservés. | Portfolio professionnel</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Fonction pour aider à ajouter la photo
+        function showPhotoInstructions() {
+            const instructions = `⚠️ PHOTO NON TROUVÉE ⚠️
+
+Pour ajouter votre photo :
+
+1. ALLEZ SUR : https://github.com/simo-cmyk375/portfolio-photo
+2. CLIQUEZ sur "Add file" (bouton vert)
+3. SÉLECTIONNEZ "Upload files"
+4. GLISSEZ votre photo (nommez-la photo.jpg)
+5. CLIQUEZ "Commit changes"
+6. CLIQUEZ sur votre photo
+7. CLIQUEZ "Raw"
+8. COPIEZ l'URL
+9. REMPLACEZ le lien dans le code HTML
+
+Votre lien sera :
+https://raw.githubusercontent.com/simo-cmyk375/portfolio-photo/main/photo.jpg`;
+
+            alert(instructions);
+            
+            // Mettre une image par défaut
+            document.getElementById('myPhoto').src = 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80';
+        }
+
+        // Vérifier si la photo existe
+        window.addEventListener('load', function() {
+            const img = document.getElementById('myPhoto');
+            const testImage = new Image();
+            testImage.src = img.src;
+            
+            testImage.onerror = function() {
+                showPhotoInstructions();
+            };
+        });
+
+        // Formulaire de contact
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Merci pour votre message ! Je vous répondrai dans les plus brefs délais.');
+            this.reset();
+        });
+
+        // Animation au scroll
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+
+        // Observer les éléments
+        document.querySelectorAll('.skill-card, .contact-info, .contact-form, .about-content').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navigation fluide
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
